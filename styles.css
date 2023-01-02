@@ -1,0 +1,8 @@
+#gameGrid{
+    display: grid;
+    gap: 0;
+}
+
+#gameGrid div{
+    border: 1px solid;
+}
