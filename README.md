@@ -1,4 +1,4 @@
-# etchAndSketch
+# etchASketch
 
 This project was created with the intent of practicing javascript.
 
