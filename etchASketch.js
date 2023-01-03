@@ -1,4 +1,30 @@
-import { colorPallet } from "./colorPallet.js";
+//import { colorPallet } from "./colorPallet.js";
+
+
+class colorPallet{
+    //manually add color pallets contain hex codes
+    constructor(){
+        this.vibrant=["0044FF","F1D302","0FFF95","FF3C38","E637BF"];
+        this.pastels=["DABFFF","907AD6","F9C784","B7FFD8","7FDEFF"];
+        this.monochrom=["CEE5f2","ACCBE1","7C98B3","7C98B3","637081","536B78"];
+    }
+
+    //accept color pallet name and return array with color names
+    getPallet(pallet){
+        switch(pallet){
+            case "vibrant":
+                return this.vibrant;
+            case "pastels":
+                return this.vibrant;
+            case "monochrom":
+                return this.monochrom;
+            default:
+                console.log(pallet+" is not an option.")
+                return this.vibrant;
+        }
+    }
+}
+
 
 class etchASketch{
    
@@ -21,16 +47,15 @@ class etchASketch{
         this.clearCanvas(game);
 
         //update game settings
-        let xAndY=this.canvasSettings();
+        this.canvasSettings();
         
 
         //set rules for grid
         game.style["grid-template-rows"]="repeat("+this.width+", 20px)";
         game.style["grid-template-columns"]="repeat("+this.height+", 20px)";
 
-        console.log(xAndY);
         console.log(this.width);
-        console.log(this.height)
+        console.log(this.height);
 
         //calculate number of cells
         let cellCount=this.width*this.height;
@@ -105,3 +130,11 @@ function newGame(){
     //create new game
     currentGame=new etchASketch();
 }
+
+function newGameButton(){
+    currentGame.newCanvas();
+}
+function resetGameButton(){
+    currentGame.reset();
+}
+
