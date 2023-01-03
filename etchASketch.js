@@ -1,10 +1,11 @@
-//import { colorPallet } from "./colorPallet";
+import { colorPallet } from "./colorPallet";
 
 class etchASketch{
    
     constructor(){
         //create new canvas 
-        this.pallet;
+        this.pallet=new colorPallet();
+        this.selectedPallet;
         this.width;
         this.height;
         this.newCanvas();
@@ -21,8 +22,7 @@ class etchASketch{
 
         //update game settings
         let xAndY=this.canvasSettings();
-        this.width=Number(xAndY["xInput"]);
-        this.height=Number(xAndY["yInput"]);
+        
 
         //set rules for grid
         game.style["grid-template-rows"]="repeat("+this.width+", 20px)";
@@ -64,7 +64,10 @@ class etchASketch{
             let property = gameSettings.item(i);
             settings[property.name] = property.value;
         }
-        return settings;
+
+        this.width=Number(settings["xInput"]);
+        this.height=Number(settings["yInput"]);
+        //this.pallet=
     }
 
     //assign a color to the cell onmouseover
