@@ -1,34 +1,39 @@
+//import { colorPallet } from "./colorPallet";
+
 class etchASketch{
    
-    constructor(row,col){
+    constructor(){
         //create new canvas 
-        this.newCanvas(row,col);
+        this.pallet;
+        this.width;
+        this.height;
+        this.newCanvas();
     }
     
     
 
     //clear the canvas and create new 
-    newCanvas(rowCount,colCount){
+    newCanvas(){
         //store div containing game
         let game=document.getElementById("gameGrid");
         //clear previous game
         this.clearCanvas(game);
 
-        //get form input about sizing
-        let xAndY=this.canvasSizing();
-        rowCount=Number(xAndY["xInput"]);
-        colCount=Number(xAndY["yInput"]);
+        //update game settings
+        let xAndY=this.canvasSettings();
+        this.width=Number(xAndY["xInput"]);
+        this.height=Number(xAndY["yInput"]);
 
         //set rules for grid
-        game.style["grid-template-rows"]="repeat("+rowCount+", 20px)";
-        game.style["grid-template-columns"]="repeat("+colCount+", 20px)";
+        game.style["grid-template-rows"]="repeat("+this.width+", 20px)";
+        game.style["grid-template-columns"]="repeat("+this.height+", 20px)";
 
         console.log(xAndY);
-        console.log(rowCount);
-        console.log(colCount)
+        console.log(this.width);
+        console.log(this.height)
 
         //calculate number of cells
-        let cellCount=rowCount*colCount;
+        let cellCount=this.width*this.height;
         console.log(cellCount);
 
         //create and add cells to canvas grid
@@ -37,6 +42,10 @@ class etchASketch{
             e.onmouseover=function(){currentGame.colorMe(this)}
             game.append(e);
         }
+
+        //store color pallet currently selected
+        //setPallet()
+
         return "successfully created new grid";
     }
 
@@ -48,14 +57,14 @@ class etchASketch{
     }
 
     //collect sizing input from form
-    canvasSizing(){
+    canvasSettings(){
         let gameSettings = document.getElementById("gameSettings").elements;
-        let xAndY ={};
+        let settings ={};
         for(let i = 0 ; i < gameSettings.length ; i++){
-            let xOrY = gameSettings.item(i);
-            xAndY[xOrY.name] = xOrY.value;
+            let property = gameSettings.item(i);
+            settings[property.name] = property.value;
         }
-        return xAndY;
+        return settings;
     }
 
     //assign a color to the cell onmouseover
