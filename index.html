@@ -9,17 +9,17 @@
     <div class="container">
         <div class="row justify-content-center">
             <!--button bar to contain game controls-->
-            <div class="col-md-2 col-12">
+            <div class="col-md-2 col-12 text-center">
                 <form class="" id="gameSettings" action="">
                     <div class="form-group text-center">
                         <label for="xInput">Width</label><br>
-                        <input type="number" name="xInput" id="xInput" value="25" class="text-center" min="1" max="50" size="4">
+                        <input type="number" name="xInput" id="xInput" value="25" class="text-center" min="1" max="25" size="4">
                     </div>
                     <div class="form-group text-center">
                         <label for="yInput">Height</label><br>
-                        <input type="number" name="yInput" id="yInput" value="25" class="text-center" min="1" max="50" size="4">
+                        <input type="number" name="yInput" id="yInput" value="25" class="text-center" min="1" max="25" size="4">
                     </div>
-                    <button onclick="currentGame.newCanvas(12,12)">Submit</button>
+                    <button type="button" onclick="currentGame.newCanvas()">Submit</button>
                 </form>
             </div>
             <!--gameGrid contains the canvas of the etch a sketch-->

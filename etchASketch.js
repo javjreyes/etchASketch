@@ -14,12 +14,22 @@ class etchASketch{
         //clear previous game
         this.clearCanvas(game);
 
+        //get form input about sizing
+        let xAndY=this.canvasSizing();
+        rowCount=Number(xAndY["xInput"]);
+        colCount=Number(xAndY["yInput"]);
+
         //set rules for grid
         game.style["grid-template-rows"]="repeat("+rowCount+", 20px)";
         game.style["grid-template-columns"]="repeat("+colCount+", 20px)";
 
+        console.log(xAndY);
+        console.log(rowCount);
+        console.log(colCount)
+
         //calculate number of cells
         let cellCount=rowCount*colCount;
+        console.log(cellCount);
 
         //create and add cells to canvas grid
         for(let i=0;i<cellCount;i++){
@@ -59,11 +69,11 @@ class etchASketch{
 
 
 //ensure document is loaded
-window.onload=newGame(25,25);
+window.onload=newGame();
 
 //declare var to store game
 var currentGame;
-function newGame(xInput,yInput){
+function newGame(){
     //create new game
-    currentGame=new etchASketch(xInput,yInput);
+    currentGame=new etchASketch();
 }
