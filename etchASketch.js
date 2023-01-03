@@ -59,11 +59,11 @@ class etchASketch{
 
 
 //ensure document is loaded
-document.onload=newGame();
+window.onload=newGame(25,25);
 
 //declare var to store game
 var currentGame;
-function newGame(){
+function newGame(xInput,yInput){
     //create new game
-    currentGame=new etchASketch(25,25);
+    currentGame=new etchASketch(xInput,yInput);
 }
