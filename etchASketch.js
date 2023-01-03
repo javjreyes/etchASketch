@@ -1,4 +1,4 @@
-import { colorPallet } from "./colorPallet";
+import { colorPallet } from "./colorPallet.js";
 
 class etchASketch{
    
