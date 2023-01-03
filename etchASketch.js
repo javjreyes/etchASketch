@@ -58,10 +58,17 @@ class etchASketch{
         return xAndY;
     }
 
+    //assign a color to the cell onmouseover
     colorMe(self){
         self.style["background-color"]="red";
     }
 
+    //reset the canvas size to default
+    reset(){
+        document.getElementById("xInput").value=25;
+        document.getElementById("yInput").value=25;
+        this.newCanvas();
+    }
 }
 
 
