@@ -45,6 +45,7 @@ class etchASketch{
             let xOrY = gameSettings.item(i);
             xAndY[xOrY.name] = xOrY.value;
         }
+        return xAndY;
     }
 
     colorMe(self){
