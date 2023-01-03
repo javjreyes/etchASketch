@@ -67,12 +67,21 @@ class etchASketch{
 
         this.width=Number(settings["xInput"]);
         this.height=Number(settings["yInput"]);
-        //this.pallet=
+
+        //set pallet for use
+        this.selectedPallet=this.pallet.getPallet("vibrant");
     }
 
     //assign a color to the cell onmouseover
     colorMe(self){
-        self.style["background-color"]="red";
+        
+        console.log(this.selectedPallet[this.randNum(4)]);
+        self.style["background-color"]="#"+this.selectedPallet[this.randNum(4)];
+    }
+
+    randNum(numOfOptions){
+        let num= Math.floor(Math.random()*numOfOptions);
+        return num;
     }
 
     //reset the canvas size to default
