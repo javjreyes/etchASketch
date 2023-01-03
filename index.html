@@ -9,7 +9,7 @@
     <div class="container">
         <div class="row justify-content-center">
             <!--button bar to contain game controls-->
-            <div class="col-md-2 col-12 justify-content-center d-flex align-items-center">
+            <div class="col-md-2 col-12 justify-content-center text-center d-flex align-items-center">
                 <form class="" id="gameSettings" action="" onsubmit="return false">
                     <div class="form-group text-center">
                         <label for="xInput">Width</label><br>
@@ -18,6 +18,14 @@
                     <div class="form-group text-center">
                         <label for="yInput">Height</label><br>
                         <input type="number" name="yInput" id="yInput" value="25" class="text-center" min="1" max="25" size="4">
+                    </div>
+                    <div class="form-group text-start">
+                        <input type="radio" class="text-center" name="pInput" id="monoChrom" checked="on">
+                        <label for="monoChrom">Monochromatic</label><br>
+                        <input type="radio" name="pInput" id="pastels">
+                        <label for="pastels">Pastel</label><br>
+                        <input type="radio" name="pInput" id="vibrant">
+                        <label for="vibrant">Vibrant</label>
                     </div>
                     <button type="button" onclick="newGameButton()" id="newGame">New<br>Game</button><br>
                     <button type="button" onclick="resetGameButton()" id="reset">Reset</button>

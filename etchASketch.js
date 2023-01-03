@@ -1,12 +1,10 @@
-//import { colorPallet } from "./colorPallet.js";
-
 
 class colorPallet{
     //manually add color pallets contain hex codes
     constructor(){
         this.vibrant=["0044FF","F1D302","0FFF95","FF3C38","E637BF"];
         this.pastels=["DABFFF","907AD6","F9C784","B7FFD8","7FDEFF"];
-        this.monochrom=["CEE5f2","ACCBE1","7C98B3","7C98B3","637081","536B78"];
+        this.monochrom=["CEE5f2","ACCBE1","7C98B3","637081","536B78"];
     }
 
     //accept color pallet name and return array with color names
@@ -15,7 +13,7 @@ class colorPallet{
             case "vibrant":
                 return this.vibrant;
             case "pastels":
-                return this.vibrant;
+                return this.pastels;
             case "monochrom":
                 return this.monochrom;
             default:
@@ -49,7 +47,6 @@ class etchASketch{
         //update game settings
         this.canvasSettings();
         
-
         //set rules for grid
         game.style["grid-template-rows"]="repeat("+this.width+", 20px)";
         game.style["grid-template-columns"]="repeat("+this.height+", 20px)";
@@ -67,9 +64,6 @@ class etchASketch{
             e.onmouseover=function(){currentGame.colorMe(this)}
             game.append(e);
         }
-
-        //store color pallet currently selected
-        //setPallet()
 
         return "successfully created new grid";
     }
@@ -93,15 +87,28 @@ class etchASketch{
         this.width=Number(settings["xInput"]);
         this.height=Number(settings["yInput"]);
 
+
         //set pallet for use
-        this.selectedPallet=this.pallet.getPallet("vibrant");
+        let pal;
+        switch (true){
+            case document.getElementById("monoChrom").checked:
+                pal="monochrom";break;
+            case document.getElementById("pastels").checked:
+                pal="pastels";break;
+            case document.getElementById("vibrant").checked:
+                pal="vibrant";break;
+            default:
+                console.log("nothingChecked");
+        }
+        
+
+        this.selectedPallet=this.pallet.getPallet(pal);
     }
 
     //assign a color to the cell onmouseover
     colorMe(self){
-        
-        console.log(this.selectedPallet[this.randNum(4)]);
-        self.style["background-color"]="#"+this.selectedPallet[this.randNum(4)];
+        let num=this.randNum(5);
+        self.style["background-color"]="#"+this.selectedPallet[num];
     }
 
     randNum(numOfOptions){
