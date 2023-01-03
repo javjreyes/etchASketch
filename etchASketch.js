@@ -37,11 +37,22 @@ class etchASketch{
         }
     }
 
+    //collect sizing input from form
+    canvasSizing(){
+        let gameSettings = document.getElementById("gameSettings").elements;
+        let xAndY ={};
+        for(let i = 0 ; i < gameSettings.length ; i++){
+            let xOrY = gameSettings.item(i);
+            xAndY[xOrY.name] = xOrY.value;
+        }
+    }
+
     colorMe(self){
         self.style["background-color"]="red";
     }
 
 }
+
 
 
 
