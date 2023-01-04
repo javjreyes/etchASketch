@@ -7,9 +7,9 @@
     </head>
     <body>
     <div class="container">
-        <div class="row justify-content-center">
+        <div class="row justify-content-around">
             <!--button bar to contain game controls-->
-            <div class="col-md-2 col-12 justify-content-center text-center d-flex align-items-center">
+            <div class="col-md-3 col-12 justify-content-center text-center d-flex align-items-center">
                 <form class="" id="gameSettings" action="" onsubmit="return false">
                     <div class="form-group text-center">
                         <label for="xInput">Width</label><br>
@@ -22,17 +22,21 @@
                     <div class="form-group text-start">
                         <input type="radio" class="text-center" name="pInput" id="monoBlue" checked="on">
                         <label for="monoBlue">Monochromatic Blue</label><br>
+                        <input type="radio" name="pInput" id="monoGreen">
+                        <label for="monoGreen">Monochromatic Green</label><br>
                         <input type="radio" name="pInput" id="pastels">
                         <label for="pastels">Pastel</label><br>
                         <input type="radio" name="pInput" id="vibrant">
                         <label for="vibrant">Vibrant</label>
+                        
                     </div>
                     <button type="button" onclick="newGameButton()" id="newGame">New<br>Game</button><br>
                     <button type="button" onclick="resetGameButton()" id="reset">Reset</button>
                 </form>
             </div>
             <!--gameGrid contains the canvas of the etch a sketch-->
-            <div class="col-md-8 col-12 justify-content-center" id="gameGrid"></div>
+            <div class="col-lg-5 col-md-8 col-12 justify-content-center" id="gameGrid"></div>
+            <div class="col-lg-3 col-md-1 col-1"></div>
         </div>
     </div>
     </body>
