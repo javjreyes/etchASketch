@@ -4,7 +4,8 @@ class colorPallet{
     constructor(){
         this.vibrant=["0044FF","F1D302","0FFF95","FF3C38","E637BF"];
         this.pastels=["DABFFF","907AD6","F9C784","B7FFD8","7FDEFF"];
-        this.monochrom=["CEE5f2","ACCBE1","7C98B3","536B78","4C5F6C"];
+        this.monoBlue=["CEE5f2","ACCBE1","7C98B3","536B78","4C5F6C"];
+        this.monoGreen=["D2FF96","C6FF7A","95F684","78C151","67934D"];
     }
 
     //accept color pallet name and return array with color names
@@ -14,8 +15,8 @@ class colorPallet{
                 return this.vibrant;
             case "pastels":
                 return this.pastels;
-            case "monochrom":
-                return this.monochrom;
+            case "monoBlue":
+                return this.monoBlue;
             default:
                 console.log(pallet+" is not an option.")
                 return this.vibrant;
@@ -33,6 +34,7 @@ class etchASketch{
         this.width;
         this.height;
         this.newCanvas();
+        this.colorScheme="linear";
     }
     
     
@@ -61,7 +63,7 @@ class etchASketch{
         //create and add cells to canvas grid
         for(let i=0;i<cellCount;i++){
             let e=document.createElement('div');
-            e.onmouseover=function(){currentGame.colorMe2(this)}
+            e.onmouseover=function(){currentGame.colorCell(this)}
             e.setAttribute("data-color","0");
             game.append(e);
         }
@@ -92,8 +94,8 @@ class etchASketch{
         //set pallet for use
         let pal;
         switch (true){
-            case document.getElementById("monoChrom").checked:
-                pal="monochrom";break;
+            case document.getElementById("monoBlue").checked:
+                pal="monoBlue";break;
             case document.getElementById("pastels").checked:
                 pal="pastels";break;
             case document.getElementById("vibrant").checked:
@@ -107,6 +109,14 @@ class etchASketch{
     }
 
     //assign a color to the cell onmouseover
+    colorCell(self){
+        if(this.colorScheme=="linear"){
+            this.colorMe2(self);
+        }
+        else{
+            this.colorMe(self);
+        }
+    }
     colorMe(self){
         console.log(self);
         let num=this.randNum(5);
