@@ -97,13 +97,13 @@ class etchASketch{
         let pal;
         switch (true){
             case document.getElementById("monoBlue").checked:
-                pal="monoBlue";break;
+                pal="monoBlue";this.colorScheme="linear";break;
             case document.getElementById("pastels").checked:
-                pal="pastels";break;
+                pal="pastels";this.colorScheme="random";break;
             case document.getElementById("vibrant").checked:
-                pal="vibrant";break;
+                pal="vibrant";this.colorScheme="random";break;
             case document.getElementById("monoGreen").checked:
-                pal="monoGreen";break;
+                pal="monoGreen";this.colorScheme="linear";break;
             default:
                 console.log("nothingChecked");
         }
