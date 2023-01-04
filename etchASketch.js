@@ -17,6 +17,8 @@ class colorPallet{
                 return this.pastels;
             case "monoBlue":
                 return this.monoBlue;
+            case "monoGreen":
+                return this.monoGreen;
             default:
                 console.log(pallet+" is not an option.")
                 return this.vibrant;
@@ -100,6 +102,8 @@ class etchASketch{
                 pal="pastels";break;
             case document.getElementById("vibrant").checked:
                 pal="vibrant";break;
+            case document.getElementById("monoGreen").checked:
+                pal="monoGreen";break;
             default:
                 console.log("nothingChecked");
         }
