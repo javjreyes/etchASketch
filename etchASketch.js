@@ -4,7 +4,7 @@ class colorPallet{
     constructor(){
         this.vibrant=["0044FF","F1D302","0FFF95","FF3C38","E637BF"];
         this.pastels=["DABFFF","907AD6","F9C784","B7FFD8","7FDEFF"];
-        this.monochrom=["CEE5f2","ACCBE1","7C98B3","637081","536B78"];
+        this.monochrom=["CEE5f2","ACCBE1","7C98B3","536B78","4C5F6C"];
     }
 
     //accept color pallet name and return array with color names
@@ -61,7 +61,8 @@ class etchASketch{
         //create and add cells to canvas grid
         for(let i=0;i<cellCount;i++){
             let e=document.createElement('div');
-            e.onmouseover=function(){currentGame.colorMe(this)}
+            e.onmouseover=function(){currentGame.colorMe2(this)}
+            e.setAttribute("data-color","0");
             game.append(e);
         }
 
@@ -107,8 +108,33 @@ class etchASketch{
 
     //assign a color to the cell onmouseover
     colorMe(self){
+        console.log(self);
         let num=this.randNum(5);
         self.style["background-color"]="#"+this.selectedPallet[num];
+    }
+
+    colorMe2(self){
+        let colorLevel=self.getAttribute("data-color");
+        switch (colorLevel){
+            case "0":
+                self.setAttribute("data-color","1");
+                self.style["background-color"]="#"+this.selectedPallet[1]
+                break;
+            case "1":
+                self.setAttribute("data-color","2");
+                self.style["background-color"]="#"+this.selectedPallet[2]
+                break;
+            case "2":
+                self.setAttribute("data-color","3");
+                self.style["background-color"]="#"+this.selectedPallet[3]
+                break;
+            case "3":
+                self.setAttribute("data-color","4");
+                self.style["background-color"]="#"+this.selectedPallet[4]
+                break;
+            default:
+                break;
+        }
     }
 
     randNum(numOfOptions){
