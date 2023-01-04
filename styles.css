@@ -5,6 +5,8 @@
 
 #gameGrid div{
     border: 1px solid;
+    margin-top:-1px;
+    margin-left: -1px;
 }
 
 #gameSettings button{
